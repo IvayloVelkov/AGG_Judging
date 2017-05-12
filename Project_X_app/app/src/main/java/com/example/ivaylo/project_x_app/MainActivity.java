@@ -1,5 +1,7 @@
 package com.example.ivaylo.project_x_app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,53 +15,46 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button sendBTN;
-    EditText scoreInput;
-    EditText scoreInput2;
+public class MainActivity extends Activity {
+    private Button AVbtn, TVbtn, EXEbtn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sendBTN = (Button) findViewById(R.id.button);
-        sendBTN.setOnClickListener(this);
-        scoreInput = (EditText) findViewById(R.id.score_input);
-        scoreInput2 = (EditText) findViewById(R.id.score_input2);
+
+        setButtons();
     }
 
-    @Override
-    public void onClick(View v) {
-        double  input1 = Double.parseDouble(scoreInput.getText().toString());
-        double  input2 = Double.parseDouble(scoreInput2.getText().toString());
-        double input = (input1 + input2)/2;
-        final String data = Double.toString(input);
-        Log.d("dd",data);
+    private void setButtons() {
+        TVbtn = (Button) findViewById(R.id.TVbtn);
+        AVbtn = (Button) findViewById(R.id.AVbtn);
+        EXEbtn = (Button) findViewById(R.id.EXEbtn);
 
-        Thread t = new Thread() {
+        TVbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                try {
-                    System.out.println("Starting Connection");
-                    Socket s = new Socket("192.168.1.103", 3306);
-                    System.out.println("Connection DONE");
-                    DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-                    dos.writeUTF(data);
-                    dos.flush();
-                    dos.close();
-                    s.close();
-                    System.out.println("Closing socket");
-                } catch (UnknownHostException e) {
-                    System.out.println("There was an Unknown Erorr:");
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    System.out.println("There was an IOException:");
-                    e.printStackTrace();
-                }
+            public void onClick(View v) {
+                Intent startTV = new Intent(getApplicationContext(),TV_judging.class);
+                startActivity(startTV);
             }
-        };
-        t.start();
-        Toast.makeText(this, "Messagge Sent...", Toast.LENGTH_SHORT).show();
+        });
+
+        EXEbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startEXE = new Intent(getApplicationContext(),EXE_judging.class);
+                startActivity(startEXE);
+            }
+        });
+
+        AVbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startAV = new Intent(getApplicationContext(),AV_judging.class);
+                startActivity(startAV);
+            }
+        });
     }
-}
+
+    }
