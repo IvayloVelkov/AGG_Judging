@@ -20,7 +20,7 @@
         <activity android:name=".TV_judging" />
         <activity android:name=".EXE_judging" />
         <activity android:name=".AV_judging" />
-        <activity android:name=".Result"></activity>
+        <activity android:name=".Final" />
     </application>
 
 </manifest>

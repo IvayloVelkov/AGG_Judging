@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
                 startActivity(startTV);
             }
         });
-
+/*
         EXEbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +55,7 @@ public class MainActivity extends Activity {
                 startActivity(startAV);
             }
         });
+        */
     }
 
     }

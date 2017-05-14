@@ -1,34 +1,33 @@
 package com.example.ivaylo.project_x_app;
 
-        import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.Toast;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-        import java.io.DataOutputStream;
-        import java.io.IOException;
-        import java.net.Socket;
-        import java.net.UnknownHostException;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
-public class MainActivity extends AppCompatActivity  {
-    Button sendBTN;
+public class Final extends AppCompatActivity  {
+    private Button sendBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_final);
         setButton();
-
     }
 
     private void setButton() {
         sendBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Thread t = new Thread() {
+                Thread t =  new Thread() {
                     @Override
                     public void run() {
                         try {
