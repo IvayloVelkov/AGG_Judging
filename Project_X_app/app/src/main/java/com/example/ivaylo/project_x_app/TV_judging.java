@@ -16,6 +16,7 @@ public class TV_judging extends Activity {
     CheckBox A_check;
     CheckBox B_check;
     double result;
+    String score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +28,23 @@ public class TV_judging extends Activity {
          B_check = (CheckBox) findViewById(R.id.B_balance);
 
         if(A_check.isChecked()){
-            A_check.setChecked(true);
+            A_check.setChecked(false);
             result = 0.10;
         }
         else if(B_check.isChecked()){
-            B_check.setChecked(true);
+            B_check.setChecked(false);
             result = 0.20;
         }
         else {
-            result = 0;
-        }
+            result = 0.0;
+       }
 
         readyBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startFinal = new Intent(getApplicationContext(),Final.class);
-                startFinal.putExtra("Result", result);
+                Intent startFinal = new Intent(TV_judging.this, Final.class);
+                score = String.valueOf(result);
+                startFinal.putExtra("Result", score);
                 startActivity(startFinal);
             }
         });

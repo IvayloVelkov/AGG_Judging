@@ -15,36 +15,40 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import static android.R.attr.value;
+
 public class Final extends Activity {
     Button sendBTN;
-    EditText result;
-    Bundle extras = new Bundle();
+    TextView result;
+    Bundle extras;
     String value = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
-        sendBTN = (Button) findViewById(R.id.sendBTN);
-        setButton();
+        result = (TextView) findViewById(R.id.score);
         extras = getIntent().getExtras();
         value = extras.getString("Result");
+        sendBTN = (Button) findViewById(R.id.sendBTN);
+        setButton();
     }
+
 
     private void setButton() {
         sendBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result.setText(value);
+                result.setText("Score:" + value);
                 Thread t =  new Thread() {
                     @Override
                     public void run() {
                         try {
                             System.out.println("Starting Connection");
-                            Socket s = new Socket("192.168.1.105", 3306);
+                            Socket s = new Socket("192.168.1.103", 3306);
                             System.out.println("Connection DONE");
                             DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-                            dos.writeUTF(String.valueOf(result));
+                            dos.writeUTF(value);
                             dos.flush();
                             dos.close();
                             s.close();

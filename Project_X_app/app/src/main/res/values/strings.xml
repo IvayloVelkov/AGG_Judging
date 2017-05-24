@@ -3,4 +3,6 @@
     <string name="exe">EXE</string>
     <string name="av">AV</string>
     <string name="tv">TV</string>
+    <string name="score">Score:</string>
+    <string name="value" />
 </resources>
