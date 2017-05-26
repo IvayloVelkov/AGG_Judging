@@ -45,7 +45,7 @@ public class Final extends Activity {
                     public void run() {
                         try {
                             System.out.println("Starting Connection");
-                            Socket s = new Socket("192.168.1.103", 3306);
+                            Socket s = new Socket("192.168.97.46", 3306);
                             System.out.println("Connection DONE");
                             DataOutputStream dos = new DataOutputStream(s.getOutputStream());
                             dos.writeUTF(value);
