@@ -44,12 +44,14 @@ public class TV_judging extends Activity {
     CheckBox B_check_P_5;
     CheckBox C_check_P_5;
 
-    double balance_result = 0 ,jump_result = 0 , wave_result = 0,
-    wool_result = 0 , series1_result = 0 , series2_result = 0 ,
-     ABC1_result = 0 , ABC2_result = 0 , ABC3_result = 0 ,
-     ABC4_result = 0 , ABC5_result = 0 , ABC6_result = 0 , final_result;
-
+    double final_result = 0;
     String score;
+    int balance1 = 0,balance2 = 0,jump1 = 0,jump2 = 0,wave1 = 0,
+            wave2 = 0,wool1 = 0,wool2 = 0,series11 = 0,series12 = 0,
+            series21 = 0,series22 = 0,ABC11 = 0,ABC12 = 0,ABC13 = 0,
+            ABC21 = 0,ABC22 = 0,ABC23 = 0 ,ABC31 = 0 ,ABC32 = 0,
+            ABC33 = 0,ABC41 = 0,ABC42 = 0,ABC43 = 0,ABC51 = 0,
+            ABC52 = 0,ABC53 = 0,ABC61 = 0,ABC62 = 0,ABC63 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,15 +90,16 @@ public class TV_judging extends Activity {
         B_check_P_5 = (CheckBox) findViewById(R.id.B6_plus);
         C_check_P_5 = (CheckBox) findViewById(R.id.C6_plus);
 
-
         A_check_balance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    balance1 = 1;
                     B_check_balance.setChecked(false);
-                    balance_result = 0.1;
-                    final_result += balance_result;
+                    if(balance2 == 1)
+                        final_result -= 0.2;
+                    final_result += 0.1;
                 }
             }
         });
@@ -106,9 +109,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    balance2 = 1;
                     A_check_balance.setChecked(false);
-                    balance_result = 0.2;
-                    final_result += balance_result;
+                    if(balance1 == 1)
+                        final_result -= 0.1;
+                    final_result += 0.2;
                 }
             }
 
@@ -119,9 +124,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    jump1 = 1;
                     B_check_jump.setChecked(false);
-                    jump_result = 0.1;
-                    final_result += jump_result;
+                    if(jump2 == 1)
+                         final_result -= 0.2;
+                    final_result += 0.1;
                 }
             }
         });
@@ -131,9 +138,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    jump2 = 1;
                     A_check_jump.setChecked(false);
-                    jump_result = 0.2;
-                    final_result += jump_result;
+                    if(jump1 == 1)
+                        final_result -= 0.1;
+                    final_result += 0.2;
                 }
             }
         });
@@ -143,9 +152,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    wave1 = 1;
                     B_check_wave.setChecked(false);
-                    wave_result = 0.1;
-                    final_result += wave_result;
+                    if(wave2 == 1)
+                        final_result -= 0.2;
+                    final_result += 0.1;
                 }
             }
         });
@@ -155,9 +166,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    wave2 = 1;
                     A_check_wave.setChecked(false);
-                    wave_result = 0.2;
-                    final_result += wave_result;
+                    if(wave1 == 1)
+                        final_result -= 0.1;
+                    final_result += 0.2;
                 }
             }
 
@@ -168,9 +181,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    wool1 = 1;
                     B_check_wool.setChecked(false);
-                    wool_result = 0.1;
-                    final_result += wool_result;
+                    if(wool2 == 1)
+                        final_result -= 0.2;
+                    final_result += 0.1;
                 }
             }
         });
@@ -180,9 +195,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    wool2 = 1;
                     A_check_wool.setChecked(false);
-                    wool_result = 0.2;
-                    final_result += wool_result;
+                    if(wool1 == 1)
+                        final_result -= 0.1;
+                    final_result += 0.2;
                 }
             }
 
@@ -193,9 +210,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    series11 = 1;
                     B_check_AB_1.setChecked(false);
-                    series1_result = 0.3;
-                    final_result += series1_result;
+                    if(series12 == 1)
+                        final_result -= 0.4;
+                    final_result += 0.3;
                 }
             }
         });
@@ -205,9 +224,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    series12 = 1;
                     A_check_AB_1.setChecked(false);
-                    series1_result = 0.4;
-                    final_result += series1_result;
+                    if(series11 == 1)
+                        final_result -= 0.3;
+                    final_result += 0.4;
                 }
             }
 
@@ -219,9 +240,11 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    series21 = 1;
                     B_check_AB_2.setChecked(false);
-                    series2_result = 0.3;
-                    final_result += series2_result;
+                    if(series22 == 1)
+                        final_result -= 0.4;
+                    final_result += 0.3;
                 }
             }
         });
@@ -231,22 +254,24 @@ public class TV_judging extends Activity {
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
+                    series22 = 1;
                     A_check_AB_2.setChecked(false);
-                    series2_result = 0.4;
-                    final_result += series2_result;
+                    if(series21 == 1)
+                        final_result -= 0.3;
+                    final_result += 0.4;
                 }
             }
 
         });
 
-        A_check_P.setOnClickListener(new View.OnClickListener() {
+      /*  A_check_P.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
                     B_check_P.setChecked(false);
                     C_check_P.setChecked(false);
-                    ABC1_result = 0.2;
+                    //ABC1_result = 0.2;
                     final_result += ABC1_result;
                 }
             }
@@ -484,7 +509,7 @@ public class TV_judging extends Activity {
         });
 
 
-
+*/
 
         readyBTN.setOnClickListener(new View.OnClickListener() {
             @Override
