@@ -46,12 +46,15 @@ public class TV_judging extends Activity {
 
     double final_result = 0;
     String score;
-    int balance1 = 0,balance2 = 0,jump1 = 0,jump2 = 0,wave1 = 0,
-            wave2 = 0,wool1 = 0,wool2 = 0,series11 = 0,series12 = 0,
-            series21 = 0,series22 = 0,ABC11 = 0,ABC12 = 0,ABC13 = 0,
-            ABC21 = 0,ABC22 = 0,ABC23 = 0 ,ABC31 = 0 ,ABC32 = 0,
-            ABC33 = 0,ABC41 = 0,ABC42 = 0,ABC43 = 0,ABC51 = 0,
-            ABC52 = 0,ABC53 = 0,ABC61 = 0,ABC62 = 0,ABC63 = 0;
+    double balance1 = 0.0, balance2 = 0.0, jump1 = 0.0, jump2 = 0.0, wave1 = 0.0,
+            wave2 = 0.0, wool1 = 0.0, wool2 = 0.0, series11 = 0.0, series12 = 0.0,
+            series21 = 0.0, series22 = 0.0;
+    private double ABC1_result;
+    private double ABC2_result;
+    private double ABC3_result;
+    private double ABC4_result;
+    private double ABC5_result;
+    private double ABC6_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -264,14 +267,14 @@ public class TV_judging extends Activity {
 
         });
 
-      /*  A_check_P.setOnClickListener(new View.OnClickListener() {
+       A_check_P.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CheckBox checkbox = (CheckBox)v;
                 if(checkbox.isChecked()) {
                     B_check_P.setChecked(false);
                     C_check_P.setChecked(false);
-                    //ABC1_result = 0.2;
+                    ABC1_result = 0.2;
                     final_result += ABC1_result;
                 }
             }
@@ -366,8 +369,8 @@ public class TV_judging extends Activity {
                 if(checkbox.isChecked()) {
                     A_check_P_2.setChecked(false);
                     C_check_P_2.setChecked(false);
-                    ABC3_result = 0.3;
-                    final_result += ABC3_result;
+                    ABC4_result = 0.3;
+                    final_result += ABC4_result;
                 }
             }
         });
@@ -507,9 +510,6 @@ public class TV_judging extends Activity {
                 }
             }
         });
-
-
-*/
 
         readyBTN.setOnClickListener(new View.OnClickListener() {
             @Override
