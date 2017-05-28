@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
         AVbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startAV = new Intent(getApplicationContext(),AV_judging.class);
+                Intent startAV = new Intent(getApplicationContext(),AV_judging_1.class);
                 startActivity(startAV);
             }
         });
