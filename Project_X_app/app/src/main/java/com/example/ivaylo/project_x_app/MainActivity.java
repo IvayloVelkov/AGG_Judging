@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
 
 public class MainActivity extends Activity {
     private Button AVbtn, TVbtn, EXEbtn;
-
+    EditText teamName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

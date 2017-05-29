@@ -13,7 +13,6 @@ import android.widget.Checkable;
 public class AV_judging_3 extends Activity {
 
     Button nextBTN;
-    Button prevBTN;
     CheckBox A_check1;
     CheckBox A_check2;
     CheckBox A_check3;
@@ -27,16 +26,20 @@ public class AV_judging_3 extends Activity {
     CheckBox A_check11;
     CheckBox A_check12;
 
-    double final_result = 0;
+    //double send_result;
+    double final_result;
     String score;
+    Bundle extras;
+    double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tv_judging);
+        setContentView(R.layout.activity_av_judging);
+        extras = getIntent().getExtras();
+        final_result += extras.getDouble("Result");
 
         nextBTN = (Button) findViewById(R.id.nextBTN);
-        prevBTN = (Button) findViewById(R.id.prevBTN);
         A_check1 = (CheckBox) findViewById(R.id.check1);
         A_check2 = (CheckBox) findViewById(R.id.check2);
         A_check3 = (CheckBox) findViewById(R.id.check3);
@@ -186,17 +189,9 @@ public class AV_judging_3 extends Activity {
             @Override
             public void onClick(View v) {
                 Intent startFinalAV = new Intent(AV_judging_3.this, AV_judging_4.class);
-                score = String.valueOf(final_result);
-                startFinalAV.putExtra("Result", score);
+                result = final_result;
+                startFinalAV.putExtra("Result", result);
                 startActivity(startFinalAV);
-            }
-        });
-
-        prevBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startAV2 = new Intent(AV_judging_3.this, AV_judging_2.class);
-                startActivity(startAV2);
             }
         });
     }

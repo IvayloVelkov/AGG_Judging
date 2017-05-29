@@ -22,33 +22,36 @@ public class Final extends Activity {
     TextView result;
     Bundle extras;
     String value = "";
+    String name;
+    EditText teamName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
         result = (TextView) findViewById(R.id.score);
+        teamName = (EditText) findViewById(R.id.editText);
         extras = getIntent().getExtras();
         value = extras.getString("Result");
         sendBTN = (Button) findViewById(R.id.sendBTN);
         setButton();
     }
 
-
     private void setButton() {
         sendBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 result.setText("Score:" + value);
+                name = teamName.getText().toString();
                 Thread t =  new Thread() {
                     @Override
                     public void run() {
                         try {
                             System.out.println("Starting Connection");
-                            Socket s = new Socket("192.168.97.46", 3306);
+                            Socket s = new Socket("192.168.1.104", 3306);
                             System.out.println("Connection DONE");
                             DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-                            dos.writeUTF(value);
+                            dos.writeUTF(name + ": " + value);
                             dos.flush();
                             dos.close();
                             s.close();
