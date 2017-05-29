@@ -41,7 +41,13 @@ public class Final extends Activity {
         sendBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result.setText("Score:" + value);
+                StringBuilder builder = new StringBuilder();
+                int decimalPoint = value.indexOf('.');
+
+                builder.append(value.substring(0, decimalPoint));
+                builder.append(value.substring(decimalPoint, 3));
+
+                result.setText("Score:" + builder.toString());
                 name = teamName.getText().toString();
                 Thread t =  new Thread() {
                     @Override
